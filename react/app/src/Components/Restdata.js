@@ -1,21 +1,22 @@
-import React  from 'react'
+import React from 'react'
 import "./Restdata.css"
+import {Link} from "react-router-dom"
 
-export const Restdata = (props) =>{
+export const Restdata = (props) => {
 
-  const renderdata = ({Rdata}) =>{
+  const renderdata = ({ Rdata }) => {
     console.log(Rdata);
-    if(Rdata.length > 0){
-      return Rdata.map((item)=>{
+    if (Rdata.length > 0) {
+      return Rdata.map((item) => {
         console.log(item);
         return (
           <div className="item3">
             <div className="item-details">
               <div className="food-image">
-                <img src={item.restaurant_thumb} className='image-render'/>
+                <img src={item.restaurant_thumb} className='image-render' />
               </div>
               <div className="rest-name">
-                <h3 id="head-main">{item.restaurant_name}</h3>
+                <Link to = {`/details?restId=${item.restaurant_id}`} className={"link-line"}><h3 id="head-main">{item.restaurant_name}</h3></Link>
                 <p id="head-two-main">FORT</p>
                 <p id="sub-p">{item.address}</p>
               </div>
@@ -27,8 +28,8 @@ export const Restdata = (props) =>{
                 <p>COST FOR TWO:</p>
               </div>
               <div className="section-two">
-                {item.cuisines.map((cus)=>(
-                    <span>{cus.cuisine_name}&nbsp;&nbsp;</span>
+                {item.cuisines.map((cus) => (
+                  <span>{cus.cuisine_name}&nbsp;&nbsp;</span>
                 ))}
                 <p id='cost-p'>₹{item.cost}</p>
               </div>
@@ -40,12 +41,12 @@ export const Restdata = (props) =>{
 
   }
 
-  return(
+  return (
     <div>{renderdata(props)}</div>
   )
 
-} 
-  
+}
 
-  
+
+
 

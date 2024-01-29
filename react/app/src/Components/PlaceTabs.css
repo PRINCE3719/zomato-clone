@@ -1,0 +1,47 @@
+.slide-tabs{
+    height:20vh;
+}
+.butn-order{
+    border-radius: 6px;
+    height: 40px;
+    width: 180px;
+    border: 0;
+    background-color: #CE0505;
+    margin-left: 50vw;
+
+}
+*{
+    color: #192F60;
+}
+
+#left-head{
+    color: #192F60;
+    font-weight: 600;
+}
+#cuisine-head{
+    font-weight: 600;
+    margin: 7vh 0 2vh 0;
+}
+#cost-head{
+    font-weight: 600;
+    margin: 5vh 0 2vh 0;
+}
+#ph-no{
+    font-size: 16px;
+    font-weight:bold;
+    color: #192F60;
+    margin-bottom: 4px;
+}
+#ph-head{
+    color: #F67082;
+    font-size:14px;
+    font-weight: bold;
+}
+#rest-nme{
+    margin-top: 6vh;
+    font-weight: bolder;
+    font-size: 18px;
+}
+#rest-add{
+    font-size: 14px;
+}

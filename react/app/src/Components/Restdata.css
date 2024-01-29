@@ -70,3 +70,6 @@ hr{
     width: 120px;
     object-fit: cover;
 }
+.link-line{
+    text-decoration: none;
+}

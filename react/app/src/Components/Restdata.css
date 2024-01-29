@@ -1,0 +1,72 @@
+.item3{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    height: 47vh;
+    width: 59vw;
+    margin-top: 22px;
+}
+.item-details{
+    padding: 20px 20px;
+    display: flex;
+    gap: 40px;
+}
+.rest-name{
+    color: #192F60;
+    margin: 0;
+}
+#sub-p{
+    color: #636F88;
+  
+    font-size: 14px;
+}
+#head-main{
+    font-size: 24px;
+    text-align: left;
+    margin: 0;
+}
+#cost-p{
+    margin-top: 8px;
+    
+}
+p{
+    text-align: left;
+}
+#head-two-main{
+    font-size: 15px;
+    font-weight: 550;
+    text-align: left;
+}
+hr{
+    color: #DEDFE5;
+    opacity: 1;
+    margin: 0 20px;
+}
+.food-image{
+    height: 120px;
+    width: 120px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 23%
+}
+
+.money{
+    padding: 20px;
+    display: flex;
+    gap: 50px;
+}
+.section-one p{
+    color: #636F88;
+    font-size: 14px;
+    text-align: left;
+}
+.section-two span{
+    color: #192F60;
+    font-size: 14px;
+}
+.image-render{
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+}

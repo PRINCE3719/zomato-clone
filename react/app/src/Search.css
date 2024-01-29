@@ -1,0 +1,92 @@
+.first-half {
+    height: 450px;
+    width: 100%;
+    background-image:  linear-gradient(180deg, #9d0e0e00 0%, #4f0707 100%),url('../images/twoooo.png');
+    
+
+}
+.circle {
+    background-color: white;
+    height: 147px;
+    width: 147px;
+    border-radius: 50%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    left: 44%;
+}
+
+.circle h2 {
+    color: red;
+    font-size: 70px;
+    margin: 0;
+}
+#heading {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+}
+#title-icon{
+    font-size: 14px;
+}
+
+select {
+    padding: 10px;
+    outline: none;
+    border-radius: 0.2rem;
+   
+}
+#location{
+   margin-left: 20%;
+
+}
+.centre{
+    width:49vw;
+    justify-content: space-evenly;
+}
+.circle {
+    background-color: white;
+    height: 147px;
+    width: 147px;
+    border-radius: 50%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    left: 44%;
+}
+
+.circle h2 {
+    color: red;
+    font-size: 70px;
+    margin: 0;
+}
+
+.buttons {
+    padding: 18px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+    gap: 20px;
+}
+
+#account {
+    padding: 10px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 0.2rem;
+}
+
+#login {
+    background: transparent;
+    border: 0;
+}
+
+button {
+    color: white;
+    cursor: pointer;
+}
+#selct-second{
+    padding-right: 12vw;
+}

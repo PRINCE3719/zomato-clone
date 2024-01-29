@@ -1,0 +1,44 @@
+
+
+.sidebar{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    margin: 4vh 0px 0px 10vw;
+    width: 17%; /*230px*/
+    height: 100%;
+}
+#filter{
+    font-size: 18px;
+    text-align: left;
+    margin: 14px 10px;
+}
+#cuisine-head,#text{
+    text-align: left;
+    margin: 21px 10px 10px;
+    font-size: 17px;
+}
+label{
+    color: #8C96AB;
+    padding-left: 10px;
+    font-size: 0.9rem;
+}
+.side-menu p{
+    color: #192F60;
+    margin:0;
+}
+.side-menu h4{
+    color: #192F60;
+    
+}
+.radio{
+    float: left;
+    margin-left: 25px;
+}
+.radio-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 2vh;
+}

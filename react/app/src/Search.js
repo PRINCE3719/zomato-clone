@@ -1,50 +1,57 @@
 import React, { Component } from 'react'
 import "./Search.css"
 
+
 const LUrl = "http://localhost:4000/locations";
 const RUrl = "http://localhost:4000/restaurants?state_id=";
 
 export default class Search extends Component {
 
-    constructor(){
+    constructor() {
         super()
         this.state = {
-            locatioN : "",
+            locatioN: "",
             restaurant: "",
         }
     }
 
 
-    RenderLocation = (data) =>{
-        if(data){
-            return data.map((item)=>{
-                return(
+    RenderLocation = (data) => {
+        if (data) {
+            return data.map((item) => {
+                return (
                     <option key={item._id} value={item.state_id}>{item.state}</option>
                 )
             })
         }
     }
 
-    handleCity = (event) =>{
+    handleCity = (event) => {
         const stateId = event.target.value;
         console.log(stateId);
-        fetch(`${RUrl}${stateId}`,{method:"GET"})
-        .then((res)=>res.json())
-        .then((data)=>{
-            console.log(data);
-            this.setState({restaurant:data})})
-        
-    }
+        fetch(`${RUrl}${stateId}`, { method: "GET" })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                this.setState({ restaurant: data })
+            })
 
-    renderRest = (data)=>{
-        if(data){
-            return data.map((item)=>{
-                return(
-                    <option key={item._id} value={item.restaurant_id}>{item.restaurant_name}</option>
+    }
+   
+
+    renderRest = (data) => {
+        if (data) {
+            return data.map((item) => {
+                return (
+                    <option key={item._id} value={item.restaurant_id}>
+                       {item.restaurant_name}
+                    </option>
                 )
             })
         }
     }
+
+   
 
     render() {
         return (
@@ -63,7 +70,7 @@ export default class Search extends Component {
                             <div className="col-2 sm-4">
                                 <select onChange={this.handleCity}>
                                     <option disabled selected>Please type a Location</option>
-                                {this.RenderLocation(this.state.locatioN)}
+                                    {this.RenderLocation(this.state.locatioN)}
                                 </select>
                             </div>
                             <div className="col-3 sm-5">
@@ -83,6 +90,6 @@ export default class Search extends Component {
     componentDidMount() {
         fetch(LUrl, { method: "GET" })
             .then((res) => res.json())
-            .then((data) => this.setState({locatioN:data}))
+            .then((data) => this.setState({ locatioN: data }))
     }
 }

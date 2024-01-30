@@ -5,6 +5,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { AppBar } from '@mui/material';
+import Menu from './Menu/Menu';
+
+
 
 
 
@@ -16,51 +19,59 @@ const Panel = (props) => (
 
 
 export const PlaceTabs = (props) => {
+    let val = props.Tabdata;
+    let menu = props.MenuList;
+    
+    
+    console.log("test", val.cuisines);
+
+
+    
 
     const [index, setIndex] = useState(0);
     const tabclick = (event, index) => {
         setIndex(index)
     }
 
-    const ArrayConvert = ({ Tabdata }) => {
-        if (typeof Tabdata !== 'object' || Tabdata === null) {
-            console.error('Tabdata is not an object');
-            return;
-        }
-        let TabArray = [];
-        TabArray.push(Tabdata);
-        return TabArray.map((item)=>{
-            console.log("gr4r",item);
-        })
-    };
-    
-    
+   
+
+
 
     return (
         <div className='slide-tabs' >
-            {ArrayConvert(props)}
+
             <AppBar style={{ position: "static", backgroundColor: "white", border: "none", boxShadow: "none" }}>
                 <Tabs value={index} onChange={tabclick} style={{ borderBottom: "2px solid #D2D9E6" }}>
                     <Tab label="Overview" style={{ color: "#192F60", fontWeight: 600 }} />
                     <Tab label="Contacts" style={{ color: "#192F60", fontWeight: 600 }} />
-                    <button className='butn-order'>Place Online Order</button>
+                    <Menu MenuData = {menu} Value = {val.restaurant_name}/>
                 </Tabs>
             </AppBar>
             <Panel value={index} index={0} >
                 <div>
                     <h4 id='left-head'>About this place</h4>
                     <h6 id='cuisine-head'>Cuisine</h6>
-                    <p></p>
+                    {val?.cuisines && val.cuisines.length > 0 && (
+                        <div>
+                            {val.cuisines.map((cuisine) => (
+                                <span key={cuisine.cuisine_id}>{cuisine.cuisine_name}&nbsp;&nbsp;</span>
+                            ))}
+                        </div>
+                    )}
+
+
+
+
                     <h6 id='cost-head'>Average Cost</h6>
-                    <p>₹700 for two people (approx.)</p>
+                    <p>₹{val.cost} for two people (approx.)</p>
                 </div>
             </Panel>
             <Panel value={index} index={1}>
                 <div>
                     <p id='ph-no'>Phone number</p>
-                    <p id='ph-head'>+91 114004566</p>
-                    <h5 id='rest-nme'>The big Chilly Ckase</h5>
-                    <p id='rest-add'>Address</p>
+                    <p id='ph-head'>+91 {val.contact_number}</p>
+                    <h5 id='rest-nme'>{val.restaurant_name}</h5>
+                    <p id='rest-add'>{val.address}</p>
                 </div>
             </Panel>
         </div>

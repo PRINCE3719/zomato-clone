@@ -1,15 +1,7 @@
 .slide-tabs{
     height:20vh;
 }
-.butn-order{
-    border-radius: 6px;
-    height: 40px;
-    width: 180px;
-    border: 0;
-    background-color: #CE0505;
-    margin-left: 50vw;
 
-}
 *{
     color: #192F60;
 }

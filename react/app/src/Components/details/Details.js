@@ -4,13 +4,15 @@ import './Details.css'
 import PlaceTabs from '../PlaceTabs'
 import axios from 'axios';
 
+
 const dUrl = "http://localhost:4000";
 export default class Details extends Component {
   
   constructor(){
     super()
     this.state = {
-        RestDetail :""
+        RestDetail :"",
+        Menulist:""
     }
   }
 
@@ -28,7 +30,8 @@ export default class Details extends Component {
         <div className='down-div'>
             <h2>{RestDetail.restaurant_name}</h2>
             <div className='tabs-div'>
-            <PlaceTabs Tabdata ={this.state.RestDetail} />
+            <PlaceTabs Tabdata ={this.state.RestDetail} MenuList = {this.state.Menulist} />
+            
             </div>
         </div>
       </div>
@@ -40,7 +43,8 @@ export default class Details extends Component {
 
     let res = await axios.get(`${dUrl}/details/${RId}`, {method:"GET "})
     console.log(res.data);
-    this.setState({RestDetail:res.data[0]})
+    let menuData = await axios.get(`${dUrl}/menu/${RId}`,{method:"GET"})
+        this.setState({RestDetail:res.data[0],Menulist:menuData.data})
   }
 
 }

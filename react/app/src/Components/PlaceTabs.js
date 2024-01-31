@@ -21,10 +21,7 @@ const Panel = (props) => (
 export const PlaceTabs = (props) => {
     let val = props.Tabdata;
     let menu = props.MenuList;
-    
-    
     console.log("test", val.cuisines);
-
 
     
 
@@ -35,6 +32,7 @@ export const PlaceTabs = (props) => {
 
    
 
+    
 
 
     return (

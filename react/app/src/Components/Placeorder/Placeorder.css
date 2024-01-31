@@ -1,0 +1,54 @@
+.mid-container{
+   background-color: white;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 500px;
+    margin: 10vh auto;
+}
+.all-fields{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 45px;
+    
+}
+#head-rest{
+    padding: 20px 46px;
+    text-align: left;
+}
+
+label{
+    text-align: left;
+    padding: 5px 0;
+    color: #192F60;
+   
+}
+input::placeholder{
+    font-size: 13px;
+    color: #B4B5BC;
+}
+input,textarea{
+    padding: 5px;
+    outline: none;
+}
+input[type="text"]{
+    height: 7vh;
+    
+}
+textarea::placeholder{
+    font-size: 13px;
+    color: #B4B5BC;
+    
+}
+.butn-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 46px;
+    align-items: center;
+}
+.butn-footer button{
+    border: 0;
+    border-radius: 6px;
+    background-color: #CE0505;
+    font-size: 14px;
+    padding: 9px;
+
+}

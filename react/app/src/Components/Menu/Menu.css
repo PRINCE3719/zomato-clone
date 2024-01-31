@@ -30,10 +30,8 @@ p {
 
 .menu-name p {
     font-size: 13px;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: wrap;
+    width: 300px;
 }
 
 .menu-img {
@@ -67,4 +65,10 @@ p {
     width: 15px;
     margin-top: 10px;
 
+}
+#minus{
+    color: red;
+}
+#plus{
+    color: green;
 }

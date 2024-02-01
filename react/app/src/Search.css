@@ -69,6 +69,7 @@ select {
     justify-content: flex-end;
     padding-right: 80px;
     gap: 20px;
+    align-items: center;
 }
 
 #account {

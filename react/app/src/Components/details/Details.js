@@ -5,7 +5,7 @@ import PlaceTabs from '../PlaceTabs'
 import axios from 'axios';
 
 
-const dUrl = "http://localhost:4000";
+const dUrl = "http://localhost:4000"
 export default class Details extends Component {
   
   constructor(){
@@ -13,11 +13,15 @@ export default class Details extends Component {
     this.state = {
         RestDetail :"",
         Menulist:"",
-        userItem:""
+        userItem:"",
+        
     }
   }
 
   
+
+ 
+
 
 
   

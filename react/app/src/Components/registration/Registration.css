@@ -1,0 +1,31 @@
+.register-main{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     width: 450px;
+     margin: 10vh auto;
+}
+.register-fields{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+.register-fields label{
+    text-align: left;
+    padding: 5px 0px;
+}
+.regi-head{
+    padding: 20px 10px 0px;
+    text-align: center;
+}
+
+.regi-butnn{
+    width: 120px;
+    padding: 8px;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: #CE0505;
+    margin: 22px auto 0;
+}
+input{
+    height: 7vh;
+}

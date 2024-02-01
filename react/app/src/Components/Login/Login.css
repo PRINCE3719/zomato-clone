@@ -1,0 +1,34 @@
+.Login-cont{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     width: 450px;
+     margin: 10vh auto;
+}
+.login-fields{
+    display: flex;
+    flex-direction: column;
+    padding: 33px;
+    gap: 8px;
+    
+}
+#login-capt{
+    text-align: center;
+    padding: 20px;
+}
+#email{
+    padding: 11px;
+}
+#pass{
+    padding: 11px;
+}
+.login-butnn{
+    width: 100px;
+    padding: 8px;
+    border: 0;
+    border-radius: 0.2rem;
+    background-color: #CE0505;
+    margin: 10px auto;
+}
+#labels{
+    text-align: left;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./Search.css"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const LUrl = "http://localhost:4000/locations";
@@ -57,8 +58,8 @@ export default class Search extends Component {
         return (
             <div className="first-half">
                 <div className="buttons">
-                    <button id="login">Login</button>
-                    <button id="account">Create an account</button>
+                    <Link to = "/Login"><button id="login">Login</button></Link>
+                    <Link to="/Register"><button id="account">Create an account</button></Link>
                 </div>
                 <div className="circle">
                     <h2>e!</h2>

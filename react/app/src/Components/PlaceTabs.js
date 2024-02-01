@@ -48,7 +48,7 @@ export const PlaceTabs = (props) => {
             <Panel value={index} index={0} >
                 <div>
                     <h4 id='left-head'>About this place</h4>
-                    <h6 id='cuisine-head'>Cuisine</h6>
+                    <h6 id='cuisine-dis'>Cuisine</h6>
                     {val?.cuisines && val.cuisines.length > 0 && (
                         <div>
                             {val.cuisines.map((cuisine) => (

@@ -91,3 +91,17 @@ button {
 #selct-second{
     padding-right: 12vw;
 }
+.logout-butuns{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.sign-out{
+    border: 0;
+    border-radius: 0.2rem;
+    width: 88px;
+    padding: 9px;
+    color: #CE0505;
+    font-weight: 600;
+    font-size: 16px;
+}

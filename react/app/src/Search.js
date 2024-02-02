@@ -13,6 +13,8 @@ export default class Search extends Component {
         this.state = {
             locatioN: "",
             restaurant: "",
+            token:"",
+            Username:""
         }
     }
 
@@ -38,29 +40,59 @@ export default class Search extends Component {
             })
 
     }
-   
+
 
     renderRest = (data) => {
         if (data) {
             return data.map((item) => {
                 return (
                     <option key={item._id} value={item.restaurant_id}>
-                       {item.restaurant_name}
+                        {item.restaurant_name}
+
                     </option>
+
                 )
             })
         }
     }
 
-   
+    Logout=()=>{
+       sessionStorage.removeItem("token");
+        
+    }
+
+
+    Rendercondition=()=>{
+        if(this.state.token){
+            return(
+                <div className='buttons'>
+                <div className='logout-butuns'>
+                    <div className='profile-name'>Hi,{this.state.Username}</div>
+                    <Link to="/Login"><button className='sign-out' onClick={this.Logout}>Log out</button></Link>
+                </div>
+                </div>
+            )
+            
+        }
+        else{
+            return(
+                <div className="buttons">
+            <Link to="/Login"><button id="login">Login</button></Link>
+            <Link to="/Register"><button id="account">Create an account</button></Link>
+        </div>
+            )
+            
+        }
+    }
+
+
+
 
     render() {
+        
         return (
             <div className="first-half">
-                <div className="buttons">
-                    <Link to = "/Login"><button id="login">Login</button></Link>
-                    <Link to="/Register"><button id="account">Create an account</button></Link>
-                </div>
+                {this.Rendercondition()}
                 <div className="circle">
                     <h2>e!</h2>
                 </div>
@@ -78,6 +110,7 @@ export default class Search extends Component {
                                 <select id='selct-second'>
                                     <option disabled selected>Search for restaurants</option>
                                     {this.renderRest(this.state.restaurant)}
+
                                 </select>
                             </div>
                         </div>
@@ -92,5 +125,14 @@ export default class Search extends Component {
         fetch(LUrl, { method: "GET" })
             .then((res) => res.json())
             .then((data) => this.setState({ locatioN: data }))
+            let tokvalue = sessionStorage.getItem("token");
+            let Uname = sessionStorage.getItem("NAME");
+            this.setState({ token: tokvalue ,Username:Uname}, () => {
+                console.log(this.state.token);
+                console.log(this.state.Username);
+            });
+
     }
+
+
 }

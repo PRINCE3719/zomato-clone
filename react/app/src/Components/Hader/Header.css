@@ -50,3 +50,28 @@ header {
 .header-login,.header-logo{
     cursor: pointer;
 }
+.after-login{
+    display: flex;
+  
+    color: black;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.profile-name{
+    color: white;
+}
+.login-out{
+    border: 0;
+    border-radius: 0.2rem;
+    width: 88px;
+    padding: 9px;
+    color: #CE0505;
+    font-weight: 600;
+    font-size: 16px;
+}
+.linkss{
+    text-decoration: none;
+}

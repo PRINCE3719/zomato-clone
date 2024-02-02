@@ -1,23 +1,93 @@
 import React, { Component } from 'react'
 import "./Header.css"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
+
+const UUrl = "http://localhost:8000/auth/userInfo";
 export default class Header extends Component {
+  constructor() {
+    super()
+    this.state = {
+      userData: "",
+      username:""
+    }
+  }
+
+  handleLogout=()=>{
+    sessionStorage.setItem("loginout","u r logged out")
+    sessionStorage.removeItem("token")
+    sessionStorage.clear("userdata");
+    this.setState({userData:[]});
+    // this.props.history.push("/Login");
+  }
+
+
+  conditionalrender = () => {
+    if(this.state.userData.email){
+      let sdata = this.state.userData;
+      sessionStorage.setItem("login","logged-inn")
+      sessionStorage.setItem("userdata",JSON.stringify(sdata));
+      let name= sdata.email.split("@")[0];
+    
+      this.setState({ username: name }, () => {
+      });
+      return (
+        <div className='after-login'>
+          <div className='profile'>
+            <div className='profile-name'>Hi,{this.state.username}</div>
+            <Link to="/Login" className={"link-styles"}><button className='login-out' onClick={this.handleLogout}>Log out</button></Link>
+          </div>
+        </div>
+  
+      )
+    }
+    else{
+      return(
+          <div className="header-login">
+          <Link to="/Login" className={"link-styles"}><span><a>Login</a></span></Link>
+          <Link to="/Register" className ={"link-styles"}><button><a>Create an account</a></button></Link>
+        </div>
+      )
+    }
+
+   
+  }
+
+
   render() {
     return (
       <div>
         <header>
           <div className="header-div">
-            <Link to ="/"><div className="header-logo">
+            <Link to="/"><div className="header-logo">
               <span>e!</span>
             </div></Link>
-            <div className="header-login">
-              <span><a>Login</a></span>
-              <button><a>Create an account</a></button>
-            </div>
+            {this.conditionalrender()}
           </div>
         </header>
       </div>
     )
   }
+
+
+  componentDidMount() {
+    fetch(UUrl, {
+      method: "GET",
+      headers: {
+        "x-acess-token": sessionStorage.getItem("token")
+      }
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      if(data.email){
+        let emailName = data.email.split("@")[0];
+        console.log(emailName);
+        sessionStorage.setItem("NAME",emailName);
+      }
+   
+      console.log("info",data);
+      this.setState({userData:data})
+    })
+  }
 }
+

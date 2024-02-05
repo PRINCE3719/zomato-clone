@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import "./Menu.css"
 import red from "./images/red.svg";
 import green from "./images/green.svg";
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+
 
 
 const MUrl = "http://localhost:4000";
-export default class Menu extends Component {
+ class Menu extends Component {
 
 
 
@@ -82,11 +83,12 @@ export default class Menu extends Component {
     };
 
     Proceed = () => {
-        const { SelectedId } = this.state;
+        const { SelectedId,SubTotal } = this.state;
         const { Value } = this.props;
         console.log(Value);
         sessionStorage.setItem("Meals", SelectedId);
         sessionStorage.setItem("RestName", Value);
+        sessionStorage.setItem("cost",SubTotal);
 
         fetch(`${MUrl}/menuItem`, {
             method: "POST",
@@ -98,8 +100,15 @@ export default class Menu extends Component {
         })
         .then((res)=>res.json())
         .then((data)=>{
+            if (this.props.history) {
+                this.props.history.push(`/placeorder/${Value}`);
+              } else {
+                console.error("History prop is missing.");
+              }
             console.log("datssss",data);
         })
+      
+      
 
     }
 
@@ -154,9 +163,9 @@ export default class Menu extends Component {
                             <div className="modal-footer justify-content-between align-item-center">
 
                                 <h5 id='total'>Subtotal =Rs.{SubTotal}</h5>
-                                <Link to="/Placeorder">
+                                
                                     <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={this.Proceed}>Pay Now</button>
-                                </Link>
+                              
 
                             </div>
                         </div>
@@ -168,5 +177,6 @@ export default class Menu extends Component {
 
 
 }
+export default withRouter(Menu);
 
 

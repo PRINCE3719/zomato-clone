@@ -14,7 +14,7 @@ export default class Search extends Component {
             locatioN: "",
             restaurant: "",
             token:"",
-            Username:""
+           
         }
     }
 
@@ -67,8 +67,8 @@ export default class Search extends Component {
             return(
                 <div className='buttons'>
                 <div className='logout-butuns'>
-                    <div className='profile-name'>Hi,{this.state.Username}</div>
-                    <Link to="/Login"><button className='sign-out' onClick={this.Logout}>Log out</button></Link>
+                    <div className='profile-name'>Hi,</div>
+                    <Link to="/Login "><button className='sign-out' onClick={this.Logout}>Log out</button></Link>
                 </div>
                 </div>
             )
@@ -126,10 +126,10 @@ export default class Search extends Component {
             .then((res) => res.json())
             .then((data) => this.setState({ locatioN: data }))
             let tokvalue = sessionStorage.getItem("token");
-            let Uname = sessionStorage.getItem("NAME");
-            this.setState({ token: tokvalue ,Username:Uname}, () => {
+            
+            this.setState({ token: tokvalue}, () => {
                 console.log(this.state.token);
-                console.log(this.state.Username);
+           
             });
 
     }

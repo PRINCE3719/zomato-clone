@@ -26,6 +26,6 @@
     background-color: #CE0505;
     margin: 22px auto 0;
 }
-input{
+#firstname,#emaiol,#number,#passwrd{
     height: 7vh;
 }

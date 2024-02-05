@@ -18,7 +18,7 @@ export default class Header extends Component {
     sessionStorage.removeItem("token")
     sessionStorage.clear("userdata");
     this.setState({userData:[]});
-    // this.props.history.push("/Login");
+    
   }
 
 

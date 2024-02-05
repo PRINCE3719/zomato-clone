@@ -29,7 +29,7 @@ input,textarea{
     padding: 5px;
     outline: none;
 }
-input[type="text"]{
+#name-field,#Number-field{
     height: 7vh;
     
 }

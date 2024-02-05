@@ -32,6 +32,8 @@ export default class Registration extends Component {
       }
     })
     .then(this.props.history.push("/Login"))
+    localStorage.setItem("Number",this.state.number);
+
   }
 
   render() {

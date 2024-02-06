@@ -12,13 +12,13 @@ import {Vieworder} from './Components/booking/Vieworder';
 function App() {
   return (
     <div className="App">
-      <Route  path = "/" component = {Home}/>
-      <Route  path="/listing/:mealId" component = {Listing}/>
-      <Route  path="/details" component={Details} />
-      <Route  path="/placeorder/:restName" component = {Placeorder}/>
-      <Route  path = "/Login" component = {Login}/>
-      <Route  path = "/Register" component = {Registration}/>
-      <Route  path = "/vieworder" component = {Vieworder}/>
+      <Route exact path = "/" component = {Home}/>
+      <Route exact path="/listing/:mealId" component = {Listing}/>
+      <Route exact path="/details" component={Details} />
+      <Route exact path="/placeorder/:restName" component = {Placeorder}/>
+      <Route exact path = "/Login" component = {Login}/>
+      <Route exact path = "/Register" component = {Registration}/>
+      <Route exact path = "/vieworder" component = {Vieworder}/>
     </div>
   );
 }

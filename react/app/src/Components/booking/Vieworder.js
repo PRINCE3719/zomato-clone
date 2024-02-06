@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Hader/Header'
-import Displayorder from './Displayorder';
+import {Displayorder} from './Displayorder';
 import axios from "axios"
 
 
-const Ourl = "http://localhost:4000/order?email=";
+const Ourl = "http://localhost:4000/order";
 
 
 export const Vieworder = () => {
@@ -12,17 +12,22 @@ export const Vieworder = () => {
 
     let session = sessionStorage.getItem("userdata");
     let data = JSON.parse(session);
-    console.log(data);
-    let names = sessionStorage.getItem("NAME");
-    let num = localStorage.getItem("Number");
+    
 
-    let results= axios.get(Ourl)
-    console.log("details order",results);
+    useEffect(()=>{
+      setOrder([]);
+       axios.get(`${Ourl}?email=${data.email}`)
+      .then((res)=> {
+        console.log("valuessssss",res);
+        setOrder(res.data);
+      })
+    },[data.email])
+ 
     
     return (
         <div>
           <Header/>
-          <Displayorder/>
+          <Displayorder orderData = {order}/>
         </div>
       )
 }

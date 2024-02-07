@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import "./Menu.css"
 import red from "./images/red.svg";
 import green from "./images/green.svg";
-import { withRouter } from 'react-router-dom/cjs/react-router-dom';
+import  {withRouter}  from "react-router-dom";
+import "animate.css"
+
 
 
 
@@ -18,6 +20,7 @@ const MUrl = "http://localhost:4000";
             SelectedId: [],
             MealId: sessionStorage.getItem("MealId"),
             SubTotal: 0
+        
 
 
 
@@ -82,6 +85,10 @@ const MUrl = "http://localhost:4000";
         });
     };
 
+
+   
+    
+
     Proceed = () => {
         const { SelectedId,SubTotal } = this.state;
         const { Value } = this.props;
@@ -89,6 +96,9 @@ const MUrl = "http://localhost:4000";
         sessionStorage.setItem("Meals", SelectedId);
         sessionStorage.setItem("RestName", Value);
         sessionStorage.setItem("cost",SubTotal);
+        let session = sessionStorage.getItem("userdata");
+        let OGdata = JSON.parse(session);
+
 
         fetch(`${MUrl}/menuItem`, {
             method: "POST",
@@ -100,13 +110,18 @@ const MUrl = "http://localhost:4000";
         })
         .then((res)=>res.json())
         .then((data)=>{
-            if (this.props.history) {
+           
+            if (this.props.history&&OGdata.email) {
                 this.props.history.push(`/placeorder/${Value}`);
               } else {
-                console.error("History prop is missing.");
+                
+                alert("Please Login in to proceed");
               }
             console.log("datssss",data);
         })
+        .catch(error=>
+            alert("Please Log in "))
+       
       
       
 
@@ -117,7 +132,7 @@ const MUrl = "http://localhost:4000";
 
     render() {
         const { MenuData, Value } = this.props;
-        const { SubTotal, Useritem } = this.state;
+        const { SubTotal, Useritem  } = this.state;
 
         return (
             <div>
@@ -171,6 +186,7 @@ const MUrl = "http://localhost:4000";
                         </div>
                     </div>
                 </div>
+               
             </div>
         )
     }

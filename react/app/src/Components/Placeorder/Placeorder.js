@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import Header from '../Hader/Header'
 import "./Placeorder.css"
+import "animate.css"
 
 const Purl = "http://localhost:4000/placeorder";
 export const Placeorder = (props) => {
@@ -25,6 +26,9 @@ export const Placeorder = (props) => {
         
 
     }
+
+ 
+   
 
     const [values, setValues] = useState(initialvalue)
 
@@ -71,6 +75,7 @@ return(
             </div>
 
         </div>
+       
     </div>
 )
 }

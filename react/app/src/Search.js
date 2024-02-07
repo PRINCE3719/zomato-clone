@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import "./Search.css"
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { withRouter } from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 
 const LUrl = "http://localhost:4000/locations";
 const RUrl = "http://localhost:4000/restaurants?state_id=";
 
-export default class Search extends Component {
+ class Search extends Component {
 
     constructor() {
         super()
@@ -47,13 +48,17 @@ export default class Search extends Component {
             return data.map((item) => {
                 return (
                     <option key={item._id} value={item.restaurant_id}>
-                        {item.restaurant_name}
-
+                     {item.restaurant_name}
                     </option>
 
                 )
             })
         }
+    }
+
+    handleRestaurantSelect = (e)=>{
+        const restid = e.target.value;
+        this.props.history.push(`/details?restId=${restid}`);
     }
 
     Logout=()=>{
@@ -107,7 +112,7 @@ export default class Search extends Component {
                                 </select>
                             </div>
                             <div className="col-3 sm-5">
-                                <select id='selct-second'>
+                                <select id='selct-second'  onChange={this.handleRestaurantSelect}>
                                     <option disabled selected>Search for restaurants</option>
                                     {this.renderRest(this.state.restaurant)}
 
@@ -136,3 +141,4 @@ export default class Search extends Component {
 
 
 }
+export default withRouter(Search)

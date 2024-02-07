@@ -14,9 +14,12 @@ export default class Details extends Component {
         RestDetail :"",
         Menulist:"",
         userItem:"",
+        loggedIn:false
         
     }
   }
+
+
 
   
 

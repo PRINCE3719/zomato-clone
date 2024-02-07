@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { Link } from 'react-router-dom';
 import "./SearchDisplay.css"
 
  export const SearchDisplay = (props)=>{

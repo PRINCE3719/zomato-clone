@@ -24,7 +24,7 @@ export const Restdata = (props) => {
             <hr />
             <div className="money">
               <div className="section-one">
-                <p>CUISINES:</p>
+                <p id='p-bottom'>CUISINES:</p>
                 <p>COST FOR TWO:</p>
               </div>
               <div className="section-two">

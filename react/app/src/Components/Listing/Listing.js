@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Header from '../Hader/Header'
 import Cuisines from '../Cuisines'
 import {Restdata} from '../Restdata'
-import SubHeads from '../SubHeads'
 import "./Listing.css"
 
 const Murl = "http://localhost:4000/restaurants?mealId=";
@@ -27,12 +26,11 @@ export default class Listing extends Component {
 
       <div>
         <Header />
-        <SubHeads />
         <div className="flex-box">
           <Cuisines mealId = {this.props.match.params.mealId} restCuisine = {(data)=>{
             this.setDatafilter(data)
           }} restCost = {(data)=>{this.setDatafilter(data)}}/>
-          <Restdata Rdata ={this.state.restaurantList} />
+          <Restdata Rdata ={this.state.restaurantList} /> 
         </div>
 
       </div>

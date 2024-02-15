@@ -1,33 +1,49 @@
-#details-order{
+#details-order {
     margin: 15px 68px;
     text-align: left;
 }
-.tables-div{
+
+.tables-div {
     width: 90%;
     margin: 0 auto;
     border-collapse: collapse;
-    
+
 }
-th{
+
+th {
     background-color: #a10f0f;
     padding: 12px;
     color: white;
     text-align: left;
-  
-    
+
+
 }
-th:nth-child(1){
+
+th:nth-child(1) {
     border-top-left-radius: 0.5rem;
 }
-th:nth-child(6){
+
+th:nth-child(6) {
     border-top-right-radius: 0.5rem;
 }
-td{
-   
+
+td {
+
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid rgb(240, 235, 235);
 }
-#table-tr-data:hover{
+
+#table-tr-data:hover {
     background-color: rgb(240, 235, 235);
+}
+
+.checkout-butn {
+    background-color: #CE0505;
+    color: white;
+    border: 0;
+    border-radius: 0.2rem;
+    padding: 7px;
+    position: relative;
+    left: 81vw;
 }

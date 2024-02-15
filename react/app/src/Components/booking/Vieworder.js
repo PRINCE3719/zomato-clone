@@ -8,19 +8,21 @@ const Ourl = "http://localhost:4000/order";
 
 
 export const Vieworder = () => {
-    const [order,setOrder] = useState()
+    const [order,setOrder] = useState([])
 
     let session = sessionStorage.getItem("userdata");
     let data = JSON.parse(session);
     
 
     useEffect(()=>{
-      setOrder([]);
        axios.get(`${Ourl}?email=${data.email}`)
       .then((res)=> {
         console.log("valuessssss",res);
-        setOrder(res.data);
+        const ordersArray = Array.isArray(res.data) ? res.data : [res.data];
+        setOrder(ordersArray);
+        
       })
+
     },[data.email])
  
     

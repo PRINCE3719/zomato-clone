@@ -9,7 +9,7 @@ import Login from './Components/Login/Login';
 import Registration from './Components/registration/Registration';
 import {Vieworder} from './Components/booking/Vieworder';
 import Success from './Components/Payment/Success';
-import Cancel from './Components/Payment/Cancel';
+
 
 function App() {
   return (
@@ -22,7 +22,6 @@ function App() {
       <Route exact path = "/Register" component = {Registration}/>
       <Route exact path = "/vieworder" component = {Vieworder}/>
       <Route exact path = "/success" component = {Success}/>
-      <Route exact path = "/cancel" component = {Cancel}/>
     </div>
   );
 }

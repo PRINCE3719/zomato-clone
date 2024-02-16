@@ -1,44 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Displayorder.css"
+import axios from "axios"
 
-import Header from '../Hader/Header';
+
 
 
 const PUrl = "http://localhost:7000/api/getkey";
 const Paymenturl = "http://localhost:7000/checkout";
 const VerifyUrl = "http://localhost:7000/payment-verify";
 
+
+
 export const Displayorder = (props) => {
 
+  // const [orderid,setorderid] = useState();
 
-
-  const Checkout = () => {
-    const { data: { key } } = fetch(PUrl, {
-      method: "GET",
-    })
-    const { data: { order } } = fetch(Paymenturl, { method: "POST" },
-      console.log(order))
+  const Checkout = async () => {
+    let cost = sessionStorage.getItem("cost");
+  
+    const { data: { key } } = await axios.get(PUrl)
+    const { data: { order } } = await axios.post(Paymenturl,{cost : cost})
+    console.log("Payment order",order);
     const options = {
       key,
+      amount:order.cost,
       currency: "INR",
-      name: "simplyjs",
+      name: "Payment",
       description: "Razorpay",
+      order_id:order.id,
       callback_url: VerifyUrl,
       prefill: {
-        name: "Prince prakash",
-        email: "prince@gmail.com",
-        contact: "8976543212",
+        name: order.name,
+        email: order.email,
+        contact: order.phone,
       },
       notes: {
-        "address": "plotb,delhi"
+        "address": order.address
       },
       theme: {
-        "color": "#3399cc"
-      }
+        "color": "#CE0505"
+      },
+      // handler:function(resp){
+      //   // axios.delete(`http://localhost:4000/deleteOrder:/${orderid}`)
+      //   // .then(()=>{
+      //   //   console.log("deleted successfully");
+      //   // })
+      // }
     };
     const razor = new window.Razorpay(options);
     razor.open();
-
+    
   }
 
   const renderTable = ({ orderData }) => {
@@ -59,7 +70,19 @@ export const Displayorder = (props) => {
         )
       })
     }
+
   }
+
+
+  // useEffect(()=>{
+  //   if(props.orderData){
+  //     return props.orderData.map((data)=>{
+  //       setorderid(data.id);
+  //     })
+  //   }
+  //   },[props.orderData])
+
+  
   return (
     <div>
       <div className='table-cont'>

@@ -8,7 +8,7 @@ const Ourl = "http://localhost:4000/order";
 
 
 export const Vieworder = () => {
-    const [order,setOrder] = useState([])
+    const [order,setOrder] = useState()
 
     let session = sessionStorage.getItem("userdata");
     let data = JSON.parse(session);
@@ -24,12 +24,14 @@ export const Vieworder = () => {
       })
 
     },[data.email])
+
+   
  
     
     return (
         <div>
           <Header/>
-          <Displayorder orderData = {order}/>
+          <Displayorder orderData = {order} />
         </div>
       )
 }

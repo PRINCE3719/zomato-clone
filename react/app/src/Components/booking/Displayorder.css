@@ -47,3 +47,6 @@ td {
     position: relative;
     left: 81vw;
 }
+.no-display{
+    display: none;
+}

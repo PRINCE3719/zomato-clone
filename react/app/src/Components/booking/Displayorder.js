@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Displayorder.css"
 import axios from "axios"
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -13,21 +14,23 @@ const VerifyUrl = "http://localhost:7000/payment-verify";
 
 export const Displayorder = (props) => {
 
-  // const [orderid,setorderid] = useState();
+  const history = useHistory();
+
+  const [orderid, setorderid] = useState();
 
   const Checkout = async () => {
     let cost = sessionStorage.getItem("cost");
-  
+
     const { data: { key } } = await axios.get(PUrl)
-    const { data: { order } } = await axios.post(Paymenturl,{cost : cost})
-    console.log("Payment order",order);
+    const { data: { order } } = await axios.post(Paymenturl, { cost: cost })
+    console.log("Payment order", order);
     const options = {
       key,
-      amount:order.cost,
+      amount: order.cost,
       currency: "INR",
       name: "Payment",
       description: "Razorpay",
-      order_id:order.id,
+      order_id: order.id,
       callback_url: VerifyUrl,
       prefill: {
         name: order.name,
@@ -40,22 +43,28 @@ export const Displayorder = (props) => {
       theme: {
         "color": "#CE0505"
       },
-      // handler:function(resp){
-      //   // axios.delete(`http://localhost:4000/deleteOrder:/${orderid}`)
-      //   // .then(()=>{
-      //   //   console.log("deleted successfully");
-      //   // })
-      // }
+      handler:async function(response){
+        if(response.razorpay_payment_id){
+          await axios.delete(`http://localhost:4000/deleteOrder/${orderid}`)
+          console.log("deleted successfully");
+          history.push(`/success?reference=${response.razorpay_payment_id}`);
+          
+        }
+        else{
+          console.log("not got it");
+        }
+      }
+
     };
     const razor = new window.Razorpay(options);
     razor.open();
-    
+
+
   }
 
   const renderTable = ({ orderData }) => {
-    if (orderData) {
+    if (orderData && orderData.length>0) {
       return orderData.map((item) => {
-        console.log("renderss", item);
         return (
           <tr key={item.id} id='table-tr-data'>
             <td>{item.id}</td>
@@ -70,19 +79,34 @@ export const Displayorder = (props) => {
         )
       })
     }
+    else{
+      return(
+        <tr>
+          <td>
+            No data
+          </td>
+        </tr>
+      )
+    }
 
   }
 
 
-  // useEffect(()=>{
-  //   if(props.orderData){
-  //     return props.orderData.map((data)=>{
-  //       setorderid(data.id);
-  //     })
-  //   }
-  //   },[props.orderData])
 
-  
+
+  useEffect(() => {
+    if (props.orderData) {
+      props.orderData.forEach((data) => {
+        setorderid(data.id);
+        console.log("kitti ikka", orderid);
+
+      });
+    }
+
+    
+  }, [props.orderData,orderid])
+
+
   return (
     <div>
       <div className='table-cont'>
@@ -102,7 +126,10 @@ export const Displayorder = (props) => {
           <tbody>
             {renderTable(props)}
           </tbody>
-          <button className='checkout-butn' onClick={Checkout}>Checkout</button>
+          {props.orderData && props.orderData.length > 0 && (
+            <button className='checkout-butn' onClick={Checkout}>Checkout</button>
+          )}
+          
         </table>
       </div>
     </div>

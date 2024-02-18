@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import "./Menu.css"
 import red from "./images/red.svg";
 import green from "./images/green.svg";
-import  {withRouter}  from "react-router-dom";
-import "animate.css"
+import { withRouter } from "react-router-dom";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 const MUrl = "http://localhost:4000";
- class Menu extends Component {
+class Menu extends Component {
 
 
 
@@ -20,7 +21,7 @@ const MUrl = "http://localhost:4000";
             SelectedId: [],
             MealId: sessionStorage.getItem("MealId"),
             SubTotal: 0
-        
+
 
 
 
@@ -86,16 +87,16 @@ const MUrl = "http://localhost:4000";
     };
 
 
-   
-    
+
+
 
     Proceed = () => {
-        const { SelectedId,SubTotal } = this.state;
+        const { SelectedId, SubTotal } = this.state;
         const { Value } = this.props;
         console.log(Value);
         sessionStorage.setItem("Meals", SelectedId);
         sessionStorage.setItem("RestName", Value);
-        sessionStorage.setItem("cost",SubTotal);
+        sessionStorage.setItem("cost", SubTotal);
         let session = sessionStorage.getItem("userdata");
         let OGdata = JSON.parse(session);
 
@@ -108,22 +109,23 @@ const MUrl = "http://localhost:4000";
                 "Content-type": "application/json"
             }
         })
-        .then((res)=>res.json())
-        .then((data)=>{
-           
-            if (this.props.history&&OGdata.email) {
-                this.props.history.push(`/placeorder/${Value}`);
-              } else {
-                
-                alert("Please Login in to proceed");
-              }
-            console.log("datssss",data);
-        })
-        .catch(error=>
-            alert("Please Log in "))
-       
-      
-      
+            .then((res) => res.json())
+            .then((data) => {
+
+                if (this.props.history && OGdata.email) {
+                    this.props.history.push(`/placeorder/${Value}`);
+                } else {
+
+                    alert("Please Login in to proceed");
+                }
+                console.log("datssss", data);
+            })
+            .catch(error =>
+                toast.error("Please log in! ")
+            );
+
+
+
 
     }
 
@@ -132,7 +134,7 @@ const MUrl = "http://localhost:4000";
 
     render() {
         const { MenuData, Value } = this.props;
-        const { SubTotal, Useritem  } = this.state;
+        const { SubTotal, Useritem } = this.state;
 
         return (
             <div>
@@ -178,15 +180,16 @@ const MUrl = "http://localhost:4000";
                             <div className="modal-footer justify-content-between align-item-center">
 
                                 <h5 id='total'>Subtotal =Rs.{SubTotal}</h5>
+
+                                <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={this.Proceed}>Pay Now</button>
                                 
-                                    <button type="button" className="btn btn-danger" data-bs-dismiss="modal" onClick={this.Proceed}>Pay Now</button>
-                              
+
 
                             </div>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         )
     }

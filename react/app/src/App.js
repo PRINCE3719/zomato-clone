@@ -8,6 +8,8 @@ import {Placeorder} from './Components/Placeorder/Placeorder';
 import Login from './Components/Login/Login';
 import Registration from './Components/registration/Registration';
 import {Vieworder} from './Components/booking/Vieworder';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Success from './Components/Payment/Success';
 
 
@@ -22,6 +24,7 @@ function App() {
       <Route exact path = "/Register" component = {Registration}/>
       <Route exact path = "/vieworder" component = {Vieworder}/>
       <Route exact path = "/success" component = {Success}/>
+      <ToastContainer/>
     </div>
   );
 }

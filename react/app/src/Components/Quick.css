@@ -32,15 +32,15 @@
 .food5,
 .food6 {
     height: 22vh;
-    width: 25vw;
+    width: 343px;
     border-radius: 0.2rem;
     display: flex;
     box-shadow: #00000029 0px 3px 6px;
 }
 
 #breakfast {
-    height: 21.9vh;
-    width: 10vw;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 
 }
@@ -51,7 +51,7 @@
 }
 
 .food1-half {
-    width: 10vw;
+    width: 200px;
 }
 
 .food1-second {
@@ -69,7 +69,7 @@
 .food1-second p {
     color: #8C96AB;
     margin:0;
-    padding-left: 10px;
+    padding-inline: 10px;
     
 }
 .fr{

@@ -35,10 +35,11 @@ select {
     padding: 10px;
     outline: none;
     border-radius: 0.2rem;
+    width: 100%;
    
 }
 #location{
-   margin-left: 20%;
+   /* margin-left: 20%; */
 
 }
 .centre{
@@ -90,6 +91,7 @@ button {
 }
 #selct-second{
     padding-right: 12vw;
+    width: 100%;
 }
 .logout-butuns{
     display: flex;

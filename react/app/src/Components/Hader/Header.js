@@ -9,7 +9,7 @@ export default class Header extends Component {
     super()
     this.state = {
       userData: "",
-      username:""
+      username:"",
     }
   }
 
@@ -27,10 +27,9 @@ export default class Header extends Component {
       let sdata = this.state.userData;
       sessionStorage.setItem("login","logged-inn")
       sessionStorage.setItem("userdata",JSON.stringify(sdata));
-      let name= sdata.email.split("@")[0];
+      
     
-      this.setState({ username: name }, () => {
-      });
+     
       return (
         <div className='after-login'>
           <div className='profile'>
@@ -80,9 +79,8 @@ export default class Header extends Component {
     .then((res)=>res.json())
     .then((data)=>{
       if(data.email){
-        let emailName = data.email.split("@")[0];
-        console.log(emailName);
-        sessionStorage.setItem("NAME",emailName);
+        this.setState({username:data.name})
+       
       }
    
       console.log("info",data);

@@ -15,6 +15,7 @@ const RUrl = "http://localhost:4000/restaurants?state_id=";
             locatioN: "",
             restaurant: "",
             token:"",
+            Name:""
            
         }
     }
@@ -69,10 +70,11 @@ const RUrl = "http://localhost:4000/restaurants?state_id=";
 
     Rendercondition=()=>{
         if(this.state.token){
+           
             return(
                 <div className='buttons'>
                 <div className='logout-butuns'>
-                    <div className='profile-name'>Hi,</div>
+                    <div className='profile-name'>Hi,{this.state.Name}</div>
                     <Link to="/Login "><button className='sign-out' onClick={this.Logout}>Log out</button></Link>
                 </div>
                 </div>
@@ -104,14 +106,14 @@ const RUrl = "http://localhost:4000/restaurants?state_id=";
                 <h2 id="heading">Find the best restaurants,cafes, and bars</h2>
                 <div className="searchbar">
                     <div id="location">
-                        <div className="row text-center centre">
-                            <div className="col-2 sm-4">
+                        <div className="row text-center justify-content-center">
+                            <div className="col-md-2">
                                 <select onChange={this.handleCity}>
                                     <option disabled selected>Please type a Location</option>
                                     {this.RenderLocation(this.state.locatioN)}
                                 </select>
                             </div>
-                            <div className="col-3 sm-5">
+                            <div className="col-md-4">
                                 <select id='selct-second'  onChange={this.handleRestaurantSelect}>
                                     <option disabled selected>Search for restaurants</option>
                                     {this.renderRest(this.state.restaurant)}
@@ -134,10 +136,16 @@ const RUrl = "http://localhost:4000/restaurants?state_id=";
             
             this.setState({ token: tokvalue}, () => {
                 console.log(this.state.token);
+               
            
             });
 
+            let user = localStorage.getItem("userName");
+            this.setState({Name:user})
+
     }
+ 
+    
 
 
 }

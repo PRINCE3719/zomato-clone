@@ -8,15 +8,16 @@ export default class Registration extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      firstname: "",
+      name: "",
       email: "",
       password: "",
-      number: "",
+      phone: "",
     }
   }
 
   Handlechange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () => {
+      console.log("hell",e.target.name);
 
     })
 
@@ -32,23 +33,24 @@ export default class Registration extends Component {
       }
     })
     .then(this.props.history.push("/Login"))
-    localStorage.setItem("Number",this.state.number);
+    localStorage.setItem("Number",this.state.phone);
+    localStorage.setItem("userName",this.state.name);
 
   }
 
   render() {
     return (
       <div>
-        <Header />
+        <Header/>
         <div className='register-main'>
           <h2 className='regi-head'>Register</h2>
           <div className='register-fields'>
             <label>Firstname</label>
-            <input type='text' id='firstname' placeholder='enter your firstname' name='firstname' onChange={this.Handlechange} />
+            <input type='text' id='firstname' placeholder='enter your firstname' name='name' onChange={this.Handlechange} />
             <label>Email</label>
             <input type='email' id='emaiol' placeholder='enter your email' name='email' onChange={this.Handlechange} />
             <label>Phone</label>
-            <input type='text' id='number' autoComplete='off' name='number' placeholder='enter yourt phone no' onChange={this.Handlechange} />
+            <input type='text' id='number' autoComplete='off' name='phone' placeholder='enter yourt phone no' onChange={this.Handlechange} />
             <label>Password</label>
             <input type='password' id='passwrd' name='password' placeholder='enter your password' onChange={this.Handlechange} />
             <button className='regi-butnn' onClick={this.Handlesubmit}>Register</button>

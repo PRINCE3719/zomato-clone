@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom';
 import {Link} from "react-router-dom";
 
 
-const LUrl = "http://localhost:4000/locations";
-const RUrl = "http://localhost:4000/restaurants?state_id=";
+const LUrl = "https://restaurantapi-1.onrender.com/locations";
+const RUrl = "https://restaurantapi-1.onrender.com/restaurants?state_id=";
 
  class Search extends Component {
 

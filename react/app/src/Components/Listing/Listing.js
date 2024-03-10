@@ -4,7 +4,7 @@ import Cuisines from '../Cuisines'
 import {Restdata} from '../Restdata'
 import "./Listing.css"
 
-const Murl = "http://localhost:4000/restaurants?mealId=";
+const Murl = "https://restaurantapi-1.onrender.com/restaurants?mealId=";
 
 export default class Listing extends Component {
 

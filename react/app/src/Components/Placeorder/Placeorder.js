@@ -3,7 +3,7 @@ import Header from '../Hader/Header'
 import "./Placeorder.css"
 import "animate.css"
 
-const Purl = "http://localhost:4000/placeorder";
+const Purl = "https://restaurantapi-1.onrender.com/placeorder";
 export const Placeorder = (props) => {
     console.log("props",props);
     let session = sessionStorage.getItem("userdata");

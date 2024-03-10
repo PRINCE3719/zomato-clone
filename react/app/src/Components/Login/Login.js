@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Login.css"
 import Header from '../Hader/Header'
 
-const Lurl = "http://localhost:8000/auth/login";
+const Lurl = "https://login-app-fm0y.onrender.com/auth/login";
 export default class Login extends Component {
   constructor() {
     super()

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Cuisines.css"
 import axios, { Axios } from "axios"
 
-const Lurl = "http://localhost:4000/filter";
+const Lurl = "https://restaurantapi-1.onrender.com/filter";
 
 export default class Cuisines extends Component {
 

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const MUrl = "http://localhost:4000";
+const MUrl = "https://restaurantapi-1.onrender.com";
 class Menu extends Component {
 
 

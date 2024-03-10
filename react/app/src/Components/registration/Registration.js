@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Registration.css"
 import Header from '../Hader/Header'
 
-const Rurl = "http://localhost:8000/auth/register";
+const Rurl = "https://login-app-fm0y.onrender.com/auth/register";
 export default class Registration extends Component {
 
   constructor(props) {

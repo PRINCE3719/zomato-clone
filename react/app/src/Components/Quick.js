@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./Quick.css"
 import {SearchDisplay} from './SearchDisplay';
 
-const QUrl = "http://localhost:4000/mealtype";
+const QUrl = "https://restaurantapi-1.onrender.com/mealtype";
 
 export default class Quick extends Component {
 

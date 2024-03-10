@@ -4,7 +4,7 @@ import {Displayorder} from './Displayorder';
 import axios from "axios"
 
 
-const Ourl = "http://localhost:4000/order";
+const Ourl = "https://restaurantapi-1.onrender.com/order";
 
 
 export const Vieworder = () => {

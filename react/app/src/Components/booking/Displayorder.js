@@ -6,9 +6,9 @@ import { useHistory } from 'react-router-dom';
 
 
 
-const PUrl = "http://localhost:7000/api/getkey";
-const Paymenturl = "http://localhost:7000/checkout";
-const VerifyUrl = "http://localhost:7000/payment-verify";
+const PUrl = "https://payment-api-42f5.onrender.com/api/getkey";
+const Paymenturl = "https://payment-api-42f5.onrender.com/checkout";
+const VerifyUrl = "https://payment-api-42f5.onrender.com/payment-verify";
 
 
 
@@ -45,7 +45,7 @@ export const Displayorder = (props) => {
       },
       handler:async function(response){
         if(response.razorpay_payment_id){
-          await axios.delete(`http://localhost:4000/deleteOrder/${orderid}`)
+          await axios.delete(`https://restaurantapi-1.onrender.com/deleteOrder/${orderid}`)
           console.log("deleted successfully");
           history.push(`/success?reference=${response.razorpay_payment_id}`);
           

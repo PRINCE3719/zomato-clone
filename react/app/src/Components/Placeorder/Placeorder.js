@@ -9,8 +9,7 @@ export const Placeorder = (props) => {
     let session = sessionStorage.getItem("userdata");
     let data = JSON.parse(session);
     console.log(data);
-    let names = sessionStorage.getItem("NAME");
-    let num = localStorage.getItem("Number");
+   
     
     
    
@@ -18,9 +17,9 @@ export const Placeorder = (props) => {
     const initialvalue = {
         id:Math.floor(Math.random() * 10000),
         rest_Name:props.match.params.restName,
-        name: names,
+        name: data.name,
         email:data.email,
-        phone:num,
+        phone:data.phone,
         address:"plot 33 Banglore",
         cost:sessionStorage.getItem("cost")
         

@@ -39,13 +39,13 @@ export default class Listing extends Component {
 
   componentDidMount() {
     let mealId = this.props.match.params.mealId;
-    console.log("helooo",mealId);
+
     sessionStorage.setItem("MealId",mealId)
     fetch(`${Murl}${mealId}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         this.setState({restaurantList:data})   
-      console.log(data);   
+       
     })
   }
 

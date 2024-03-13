@@ -39,8 +39,6 @@ class Menu extends Component {
         this.setState({
             Useritem: Useritem
         })
-        console.log(`selected meal ${id}`);
-        console.log("selected", SelectedId);
 
         this.Subtotal();
     };
@@ -59,8 +57,7 @@ class Menu extends Component {
             const index = SelectedId.indexOf(id);
             if (index !== -1) {
                 SelectedId.splice(index, 1);
-                console.log(`Removed meal with id ${id}`);
-                console.log("selected", SelectedId);
+
             }
         }
         this.Subtotal();
@@ -81,7 +78,7 @@ class Menu extends Component {
         });
 
         this.setState({ SubTotal: subtotal }, () => {
-            console.log(`Total money: ${this.state.SubTotal}`);
+   
 
         });
     };
@@ -93,7 +90,7 @@ class Menu extends Component {
     Proceed = () => {
         const { SelectedId, SubTotal } = this.state;
         const { Value } = this.props;
-        console.log(Value);
+        
         sessionStorage.setItem("Meals", SelectedId);
         sessionStorage.setItem("RestName", Value);
         sessionStorage.setItem("cost", SubTotal);
@@ -118,7 +115,7 @@ class Menu extends Component {
 
                     alert("Please Login in to proceed");
                 }
-                console.log("datssss", data);
+                
             })
             .catch(error =>
                 toast.error("Please log in! ")

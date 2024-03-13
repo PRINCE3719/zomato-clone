@@ -51,7 +51,6 @@ const RUrl = "https://restaurantapi-1.onrender.com/restaurants?state_id=";
                     <option key={item._id} value={item.restaurant_id}>
                      {item.restaurant_name}
                     </option>
-
                 )
             })
         }

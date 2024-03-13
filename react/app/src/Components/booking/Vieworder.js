@@ -17,7 +17,7 @@ export const Vieworder = () => {
     useEffect(()=>{
        axios.get(`${Ourl}?email=${data.email}`)
       .then((res)=> {
-        console.log("valuessssss",res);
+   
         const ordersArray = Array.isArray(res.data) ? res.data : [res.data];
         setOrder(ordersArray);
         

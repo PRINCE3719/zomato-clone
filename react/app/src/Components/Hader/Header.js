@@ -83,7 +83,7 @@ export default class Header extends Component {
        
       }
    
-      console.log("info",data);
+  
       this.setState({userData:data})
     })
   }

@@ -55,7 +55,7 @@ export default class Details extends Component {
     let RId = this.props.location.search.split("=")[1];
 
     let res = await axios.get(`${dUrl}/details/${RId}`, {method:"GET "})
-    console.log(res.data);
+
     let menuData = await axios.get(`${dUrl}/menu/${RId}`,{method:"GET"})
         this.setState({RestDetail:res.data[0],Menulist:menuData.data})
   }

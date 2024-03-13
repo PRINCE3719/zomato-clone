@@ -23,7 +23,7 @@ export const Displayorder = (props) => {
 
     const { data: { key } } = await axios.get(PUrl)
     const { data: { order } } = await axios.post(Paymenturl, { cost: cost })
-    console.log("Payment order", order);
+
     const options = {
       key,
       amount: order.cost,
@@ -46,7 +46,6 @@ export const Displayorder = (props) => {
       handler:async function(response){
         if(response.razorpay_payment_id){
           await axios.delete(`https://restaurantapi-1.onrender.com/deleteOrder/${orderid}`)
-          console.log("deleted successfully");
           history.push(`/success?reference=${response.razorpay_payment_id}`);
           
         }
@@ -98,7 +97,8 @@ export const Displayorder = (props) => {
     if (props.orderData) {
       props.orderData.forEach((data) => {
         setorderid(data.id);
-        console.log("kitti ikka", orderid);
+     
+
 
       });
     }

@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import "./Cuisines.css"
-import axios, { Axios } from "axios"
+import axios from "axios"
 
 const Lurl = "https://restaurantapi-1.onrender.com/filter";
 
 export default class Cuisines extends Component {
+ 
 
 
     filterCuisnes = (event) => {
         let cuisineid = event.target.value;
         let mealID = this.props.mealId;
-        console.log("youuuuu", mealID);
-        console.log("cuisine", cuisineid);
         let cuisineUrl;
         if (!cuisineid) {
             cuisineUrl = `${Lurl}/${mealID}`;
@@ -22,7 +21,6 @@ export default class Cuisines extends Component {
 
         axios.get(cuisineUrl)
         .then((res)=>{
-            console.log(res.data)
             this.props.restCuisine(res.data)
         })
     }
@@ -31,11 +29,11 @@ export default class Cuisines extends Component {
     filterCost = (event)=>{
         let mealId = this.props.mealId;
         let cost = event.target.value.split("-");
-        console.log(cost);
+    
         let costUrl;
         let lcost = cost[0];
         let hcost = cost[1];
-        console.log("low",lcost,"high",hcost);
+      
 
         if(event.target.value === ""){
             costUrl = `${Lurl}/${mealId}`
@@ -46,7 +44,7 @@ export default class Cuisines extends Component {
 
         axios.get(costUrl)
         .then((res)=>{
-            console.log("all datas",res.data);
+         
             this.props.restCost(res.data)
         })
     }
@@ -57,6 +55,7 @@ export default class Cuisines extends Component {
                 <div className="side-menu">
                     <p id="cuisine-head">Cuisine</p>
                     <div className="radio-div" onChange={this.filterCuisnes}>
+                         
                         <div className="radio">
                             <input type="checkbox" value="1" id="north" />
                             <label for="north">North Indian</label><br />

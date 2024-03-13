@@ -17,7 +17,7 @@ export default class Registration extends Component {
 
   Handlechange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () => {
-      console.log("hell",e.target.name);
+  
 
     })
 
@@ -32,9 +32,21 @@ export default class Registration extends Component {
         "Content-Type": "application/json"
       }
     })
-    .then(this.props.history.push("/Login"))
+    .then((response)=>{
+      if(response.ok){
+      this.props.history.push("/Login")
     localStorage.setItem("Number",this.state.phone);
     localStorage.setItem("userName",this.state.name);
+      }
+      else{
+        throw new Error('Registration failed');
+      }
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+    
+  
 
   }
 

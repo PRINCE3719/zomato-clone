@@ -5,19 +5,18 @@ import {Link} from "react-router-dom"
 export const Restdata = (props) => {
 
   const renderdata = ({ Rdata }) => {
-    console.log(Rdata);
+ 
     if (Rdata.length > 0) {
       return Rdata.map((item) => {
-        console.log(item);
+      
         return (
           <div className="item3">
             <div className="item-details">
               <div className="food-image">
-                <img src={item.restaurant_thumb} className='image-render' />
+                <img src={item.restaurant_thumb} className='image-render' alt='' />
               </div>
               <div className="rest-name">
                 <Link to = {`/details?restId=${item.restaurant_id}`} className={"link-line"}><h3 id="head-main">{item.restaurant_name}</h3></Link>
-                <p id="head-two-main">FORT</p>
                 <p id="sub-p">{item.address}</p>
               </div>
             </div>

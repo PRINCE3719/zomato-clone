@@ -5,10 +5,10 @@ import "animate.css"
 
 const Purl = "https://restaurantapi-1.onrender.com/placeorder";
 export const Placeorder = (props) => {
-    console.log("props",props);
+
     let session = sessionStorage.getItem("userdata");
     let data = JSON.parse(session);
-    console.log(data);
+ 
    
     
     
